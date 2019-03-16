@@ -9,15 +9,17 @@
 #  the Free Software Foundation; 
 #------------------------------------------------------
 
-ʹ�÷�����
-һ����post-commit������������䣺
+使用方法：
+一、在post-commit中添加运行语句：
 SVNDIFFCOUNT=/_cmcenter/svncount/diffcount 
 $SVNDIFFCOUNT --svn-post-commit -p "$REPOS" -r "$REV" --process
---process��ʾ���ȣ�������ӣ����̨ͳ�ƣ�ǰ̨��������ʾ��������post-commit�ű��У�����ͳ��ռ��post-commit���е�ʱ��
+--process显示进度，如果不加，则后台统计，前台不会有显示，可用于post-commit脚本中，减少统计占用post-commit运行的时间
 
-��������ͳ��
+二、批量统计
 diffcount --svn-post-commit -p "$REPOS" -r "$REV" [--end-revision "$rev_end"] --process
-��ʵ�ֶ����ͬ�汾��ͳ��
+来实现多个不同版本的统计
 
-������������ͳ�Ƽ�����
-ʹ��--help�����ȡ����ͳ�Ʒ�ʽ
+三、本地数据统计及其他
+使用--help命令获取更多统计方式; 
+
+特别备注：数据库不是必须的，如果不需要导入数据库，则可以使用本地统计功能；SVN的统计模式，必须依赖数据库
